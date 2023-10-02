@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Observable } from "rxjs";
+import { Customer } from "src/app/model/customer.model";
+import { EventEmitter, Injectable, Output } from "@angular/core";
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +11,11 @@ export class AuthenticationService {
   customerLoginState: boolean = false//thử
   adminLoginState: boolean = false
   customerInfo: any
+  userLogin: any;
+    userLoginEmitter: EventEmitter<string> = new EventEmitter<string>()
+
+    customerStated: EventEmitter<boolean> = new EventEmitter<boolean>()
+    adminStated: EventEmitter<boolean> = new EventEmitter<boolean>()
 
   LogOut() {
       this.adminLoginState = false

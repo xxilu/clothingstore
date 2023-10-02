@@ -16,6 +16,8 @@ import { ProductCardComponent } from './body/product-card/product-card.component
 import { ProductDetailComponent } from './body/product-detail/product-detail.component';
 import { ShoppingCartComponent } from './body/shopping-cart/shopping-cart.component';
 import { PaymentComponent } from './body/payment/payment.component';
+import { LoginComponent } from './body/login/login.component';
+import { RegisterComponent } from './body/register/register.component';
 
 const routes: Routes = [
   { path: 'body', component: BodyComponent },
@@ -24,9 +26,9 @@ const routes: Routes = [
   { path: 'product-detail/:id', component: ProductDetailComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: 'payment', component: PaymentComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 
-
-  
 
 ]
 
@@ -42,6 +44,8 @@ const routes: Routes = [
     ProductDetailComponent,
     ShoppingCartComponent,
     PaymentComponent,
+    LoginComponent,
+    RegisterComponent,
 
   ],
   imports: [

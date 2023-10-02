@@ -12,18 +12,21 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit{
+  //category_dropdown: Categories[] = [];
   totalCart: number = 0;
+  customerName: string = ''
+  customerState: boolean = false;
   constructor( private router: Router, private authenticationService: AuthenticationService) {}
   ngOnInit(): void {
     // this.totalCart = this.shoppingCartService.GetTotalCart();
    
 
-    // this.authenticationService.userLoginEmitter.subscribe((event) => {
-    //   this.customerName = event
-    // })
-    // this.authenticationService.customerStated.subscribe((event) => {
-    //   this.customerState = event
-    // })
+    this.authenticationService.userLoginEmitter.subscribe((event) => {
+      this.customerName = event
+    })
+    this.authenticationService.customerStated.subscribe((event) => {
+      this.customerState = event
+    })
     
     // this.cartService.cartQuantityChanged.subscribe(count => {
     //   this.totalCart = count;
