@@ -12,10 +12,9 @@ export class AuthenticationService {
   adminLoginState: boolean = false
   customerInfo: any
   userLogin: any;
-    userLoginEmitter: EventEmitter<string> = new EventEmitter<string>()
-
-    customerStated: EventEmitter<boolean> = new EventEmitter<boolean>()
-    adminStated: EventEmitter<boolean> = new EventEmitter<boolean>()
+  userLoginEmitter: EventEmitter<string> = new EventEmitter<string>()
+  customerStated: EventEmitter<boolean> = new EventEmitter<boolean>()
+  adminStated: EventEmitter<boolean> = new EventEmitter<boolean>()
 
   LogOut() {
       this.adminLoginState = false
@@ -27,7 +26,7 @@ export class AuthenticationService {
   }
 
   Login(cus : any){
-      return this.http.post<any>('https://localhost:7069/api/Customers/login', cus);
+      return this.http.post<any>('https://localhost:7069/api/Customers/signin', cus);
   }
 
 
