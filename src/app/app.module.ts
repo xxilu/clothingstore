@@ -26,6 +26,7 @@ import { ProductsDeleteComponent } from './admin-body/products/products-delete/p
 import { CategoriesCreateComponent } from './admin-body/categories/categories-create/categories-create.component';
 import { CategoriesEditComponent } from './admin-body/categories/categories-edit/categories-edit.component';
 import { CategoriesDeleteComponent } from './admin-body/categories/categories-delete/categories-delete.component';
+import { SearchComponent } from './body/search/search.component';
 
 
 const routes: Routes = [
@@ -38,7 +39,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'admin-sidebar', component: AdminSidebarComponent },
-  { path: 'admin-products', component: ProductsComponent },
+  { path: 'products', component: ProductsComponent },
   { path: 'products-create', component: ProductsCreateComponent },
   { path: 'products-edit', component: ProductsEditComponent },
   { path: 'products-delete', component: ProductsDeleteComponent },
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: 'categories', component: CategoriesComponent },
   { path: 'categories-edit', component: CategoriesEditComponent },
   { path: 'categories-delete', component: CategoriesDeleteComponent },
+  { path: 'search/:search_key', component: SearchComponent },
 ]
 
 @NgModule({
@@ -71,6 +73,7 @@ const routes: Routes = [
     CategoriesCreateComponent,
     CategoriesEditComponent,
     CategoriesDeleteComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

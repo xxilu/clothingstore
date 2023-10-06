@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
           this.authenticationService.userLogin = this.name;
           this.authenticationService.userLoginEmitter.emit(this.authenticationService.userLogin);
         } else {
-          this.router.navigate(['product-list'])
+          this.router.navigate(['home'])
           this.name = response.userName;
           this.authenticationService.customerInfo = response;
           this.authenticationService.customerLoginState = true;

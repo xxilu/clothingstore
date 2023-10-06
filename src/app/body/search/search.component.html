@@ -29,10 +29,11 @@
     <option value="lowToHigh">Sắp xếp giá từ thấp đến cao</option>
     <option value="HighToLow">Sắp xếp giá từ cao đến thấp</option>
   </select>
-  -->
-    <p></p>
-  <app-product-card></app-product-card>
+   -->
+    
   
+    <p></p>
+  <app-product-card *ngFor="let item of lstProd" [prodID]="item.productId"></app-product-card>
   </div>
   
   

@@ -7,8 +7,18 @@
   
     <ul class="nav col-12 col-md-auto align-items-center mb-2 mb-md-0">
       <li><a routerLink="/home" class="nav-link px-4 text-white text-uppercase fs-6">Trang chủ</a></li>
+      <li>
+        <div class="search">
+          <form id="searchFormTop" (ngSubmit)="SearchSubmit(f)" #f="ngForm">
+            <input type="text" ngModel name="search_string" type="search" class="searchbox" placeholder="Search..."
+              aria-label="Search">>
+            <span class="search-btn-wrap">
+              <button class="search-btn" type="submit"><i class="bi bi-search"></i></button>
+            </span>
+          </form>
+        </div>
+      </li>
       <li><a routerLink="/product-list" class="nav-link px-4 text-white text-uppercase fs-6">product-list</a></li>
-
       <li class="nav-item dropdown"><a routerLink="/category-product" class="nav-link dropdown-toggle px-4 text-white text-uppercase fs-6"
           role="button" data-bs-toggle="dropdown" aria-expanded="false">sản phẩm</a>
         <ul class="dropdown-menu">
@@ -21,7 +31,6 @@
           <li><a class="dropdown-item" href="#">SẢN PHẨM BÁN CHẠY</a></li>
         </ul>
       </li>
-      <li><a href="#" class="nav-link px-4 text-white text-uppercase fs-6">blogs</a></li>
     </ul>
     <div class="col-lg-3 text-end">
       <a routerLink="/cart" class="px-4 text-white text-decoration-none fs-6">

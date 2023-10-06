@@ -1,14 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Products } from '../model/product.model';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = 'https://localhost:7069/api/products';
-
 
   constructor(private http: HttpClient) { }
   getProductListAPI(): Observable<any> {
@@ -28,7 +27,9 @@ export class ProductService {
     return this.http.delete('https://localhost:7069/api/Products/' + idProduct.toString());
   }
 
-
+  getProdBySearchKeyAPI(searchKey: string): Observable<Products[]> {
+        return this.http.get<Products[]>('https://localhost:7069/api/Products/searchKey='+searchKey);
+    }
 
   getCategoryListAPI(): Observable<any> {
     return this.http.get<any>('https://localhost:7069/api/Categories');

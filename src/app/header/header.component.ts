@@ -16,10 +16,10 @@ export class HeaderComponent implements OnInit{
   totalCart: number = 0;
   customerName: string = ''
   customerState: boolean = false;
-  constructor( private router: Router, private authenticationService: AuthenticationService) {}
+  constructor(private productService: ProductService, private router: Router, private authenticationService: AuthenticationService) {}
   ngOnInit(): void {
     // this.totalCart = this.shoppingCartService.GetTotalCart();
-   
+  
 
     this.authenticationService.userLoginEmitter.subscribe((event) => {
       this.customerName = event
@@ -36,9 +36,10 @@ export class HeaderComponent implements OnInit{
   SearchSubmit(form:NgForm){
     // alert(form.value.search_string);
     const searchString = form.value.search_string;
+    console.log(searchString);
     form.reset();
     this.router.navigate(['/search', searchString]);
-
+    
   }
 
   // onLogOut() {
