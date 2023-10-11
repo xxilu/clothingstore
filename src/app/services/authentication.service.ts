@@ -28,7 +28,9 @@ export class AuthenticationService {
   Login(cus : any){
       return this.http.post<any>('https://localhost:7069/api/Customers/signin', cus);
   }
-
+  getCurrentUser(): Customer {
+    return this.customerInfo.userId;
+  }
 
   // GetCustomerById(idCus: number): Observable<Customer> {
   //     // return this.http.get<Customer>('https://localhost:7277/api/Customers/' + idCus.toString());

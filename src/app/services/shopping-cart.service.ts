@@ -40,7 +40,6 @@ export class ShoppingCartService {
       };
       this.cartQuantityChanged.emit(this.getQuantity());
     }
-
   }
 
   getPrice(): number {
@@ -72,8 +71,6 @@ export class ShoppingCartService {
       product.quantity += quantity;
     }
     this.cartQuantityChanged.emit(this.getQuantity());
-
-
   }
   // checkProductAvailability(productId: number, quantity: number): boolean {
   //   const product = this.productService.getProductByIdAPI(productId); // Lấy thông tin sản phẩm từ cơ sở dữ liệu

@@ -1,0 +1,28 @@
+.prod-options {
+    margin-left: 100px;
+}
+
+.full-detail {
+    display: flex;
+}
+
+.gallery-container {
+    flex-direction: column;
+    align-items: start;
+}
+
+.large-image img {
+    width: 320px;
+    height: auto;
+}
+
+.small-images {
+    display: flex;
+    margin-top: 20px;
+}
+
+.small-image img {
+    margin-right: 10px;
+    width: 100px;
+    height: 100px;
+}

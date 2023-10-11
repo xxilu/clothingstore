@@ -25,7 +25,6 @@ export class ShoppingCartComponent {
     , private router: Router
     , private product: ProductService
     , private authenticationService: AuthenticationService
-
   ) { }
   ngOnInit(): void {
 

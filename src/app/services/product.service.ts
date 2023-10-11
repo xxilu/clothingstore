@@ -12,7 +12,6 @@ export class ProductService {
   constructor(private http: HttpClient) { }
   getProductListAPI(): Observable<any> {
     return this.http.get<any>('https://localhost:7069/api/Products');
-
   }
   getProductIdAPI(id: number): any {
     return this.http.get<any>('https://localhost:7069/api/Products/' + id.toString());
@@ -25,6 +24,9 @@ export class ProductService {
   }
   deleteProductAPI(idProduct: number) {
     return this.http.delete('https://localhost:7069/api/Products/' + idProduct.toString());
+  }
+  getFavoriteProductAPI(idCus: number): any {
+    return this.http.get('https://localhost:7069/api/Products/idFavor=' + idCus.toString);
   }
 
   getProdBySearchKeyAPI(searchKey: string): Observable<Products[]> {

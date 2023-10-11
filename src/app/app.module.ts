@@ -27,6 +27,7 @@ import { CategoriesCreateComponent } from './admin-body/categories/categories-cr
 import { CategoriesEditComponent } from './admin-body/categories/categories-edit/categories-edit.component';
 import { CategoriesDeleteComponent } from './admin-body/categories/categories-delete/categories-delete.component';
 import { SearchComponent } from './body/search/search.component';
+import { FavoriteListComponent } from './body/favorite-list/favorite-list.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'categories-edit', component: CategoriesEditComponent },
   { path: 'categories-delete', component: CategoriesDeleteComponent },
   { path: 'search/:search_key', component: SearchComponent },
+  { path: 'favorite-list', component: FavoriteListComponent },
 ]
 
 @NgModule({
@@ -74,6 +76,7 @@ const routes: Routes = [
     CategoriesEditComponent,
     CategoriesDeleteComponent,
     SearchComponent,
+    FavoriteListComponent,
   ],
   imports: [
     BrowserModule,

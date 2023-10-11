@@ -2,6 +2,10 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { FavoriteProductService } from 'src/app/services/favoriteproduct.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+
+
 
 @Component({
   selector: 'app-product-detail',
@@ -11,9 +15,9 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 export class ProductDetailComponent implements OnInit {
   productID: number = 0;
   product: any;
+  userId: any;
   category: any;
   countProd: number = 1;
-
   selectedItem: string = '';
   isOutOfStock: boolean = false;
   isLimitReached: boolean = false;
@@ -23,6 +27,8 @@ export class ProductDetailComponent implements OnInit {
     , private route: ActivatedRoute
     , private router: Router
     , private shoppingCart: ShoppingCartService
+    , private authen:AuthenticationService
+    , private favoriteProd: FavoriteProductService
     , private cdr: ChangeDetectorRef // Inject ChangeDetectorRef
   ) { }
   ngOnInit(): void {
@@ -37,7 +43,6 @@ export class ProductDetailComponent implements OnInit {
         this.updateOutOfStockStatus();
         this.onIsOutOfStock();
         console.log(this.product.amount1)
-       
       })
 
     })
@@ -51,6 +56,8 @@ export class ProductDetailComponent implements OnInit {
     // Bạn có thể thực hiện các xử lý khác ở đây
   }
   AddToCart(prod: any) {
+    
+    this.userId = this.authen.getCurrentUser();
     // var prod = this.productService.getCategoryByIDProd(prodID);
     if(this.selectedItem == this.product.size1 && this.product.amount1 == 0 || this.selectedItem == this.product.size1 && this.countProd > this.product.amount1 || !this.selectedItem){
       alert("Vui lòng chọn size hoặc chọn lại số lượng vì có thể vượt quá số lượng kho")
@@ -68,7 +75,15 @@ export class ProductDetailComponent implements OnInit {
     // alert(prodID)
     alert(this.selectedItem)
   }
-
+  AddToFavorite(prod: any) {
+    const data = {
+      productId : prod.productId,
+      userId : this.authen.getCurrentUser() 
+    }
+    this.favoriteProd.addToFavorites(data).subscribe()
+    console.log(this.authen.getCurrentUser()); 
+    console.log(data) 
+  }
   CounterMinus() {
     if (this.countProd == 0) {
       this.countProd = 1;
