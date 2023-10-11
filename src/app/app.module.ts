@@ -29,7 +29,6 @@ import { CategoriesDeleteComponent } from './admin-body/categories/categories-de
 import { SearchComponent } from './body/search/search.component';
 import { FavoriteListComponent } from './body/favorite-list/favorite-list.component';
 
-
 const routes: Routes = [
   { path: 'body', component: BodyComponent },
   { path: 'home', component: HomeComponent },
